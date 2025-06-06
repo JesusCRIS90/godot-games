@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cacy4reab1n05"]
+
+[ext_resource type="Script" path="res://test/resource_test.gd" id="1_4nnwa"]
+[ext_resource type="Resource" uid="uid://dwj7fc3oivswh" path="res://resources/knife.tres" id="2_0w6vb"]
+
+[node name="ResourceTest" type="Node2D"]
+script = ExtResource("1_4nnwa")
+weapon = ExtResource("2_0w6vb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(506, 365)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://dwj7fc3oivswh"]
+
+[ext_resource type="Script" path="res://resources/weapon.gd" id="1_yeqyg"]
+[ext_resource type="Texture2D" uid="uid://dydb1cli3egwh" path="res://assets/glitch/cactus.png" id="2_ebvuv"]
+
+[resource]
+script = ExtResource("1_yeqyg")
+damage = 0
+weapon_name = "knife"
+texture = ExtResource("2_ebvuv")

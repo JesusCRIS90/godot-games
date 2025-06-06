@@ -1,0 +1,6 @@
+res://scenes/memory_tile/memory_tile.tscn
+res://scenes/game/game.tscn
+res://scenes/scorer/scorer.tscn
+res://scenes/master/master.tscn
+res://scenes/game_over_ui/game_over_ui.tscn
+res://scenes/level_button/level_button.tscn

@@ -1,0 +1,7 @@
+extends Resource
+
+class_name Weapon
+
+@export var damage: int
+@export var weapon_name: String
+@export var texture: Texture2D

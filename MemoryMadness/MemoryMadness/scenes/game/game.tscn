@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://ds8y27aujnx6"]
+
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ktm8v"]
+[ext_resource type="LabelSettings" uid="uid://efdir2vdny11" path="res://assets/GM_32_Dark.tres" id="1_q2esx"]
+[ext_resource type="Texture2D" uid="uid://bhe7ptq1o0sti" path="res://assets/ui/blue_button00.png" id="2_wgtvu"]
+[ext_resource type="Texture2D" uid="uid://bhlrytlm4n48l" path="res://assets/ui/green_button00.png" id="3_3ne15"]
+[ext_resource type="LabelSettings" uid="uid://bb630qrhxr0ef" path="res://assets/GM_32_White.tres" id="4_i1dy7"]
+[ext_resource type="PackedScene" uid="uid://gfrxlcmvbnbc" path="res://scenes/scorer/scorer.tscn" id="6_qyiew"]
+[ext_resource type="PackedScene" uid="uid://dd4f2x7tsu3w2" path="res://scenes/game_over_ui/game_over_ui.tscn" id="7_wqn1n"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ktm8v")
+
+[node name="HB" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MC" type="MarginContainer" parent="HB"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TilesContainer" type="GridContainer" parent="HB/MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MC2" type="MarginContainer" parent="HB"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/margin_right = 12
+
+[node name="VB" type="VBoxContainer" parent="HB/MC2"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HB" type="HBoxContainer" parent="HB/MC2/VB"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HB/MC2/VB/HB"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Moves"
+label_settings = ExtResource("1_q2esx")
+vertical_alignment = 1
+
+[node name="LabelMoves" type="Label" parent="HB/MC2/VB/HB"]
+layout_mode = 2
+text = "000"
+label_settings = ExtResource("1_q2esx")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HB2" type="HBoxContainer" parent="HB/MC2/VB"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HB/MC2/VB/HB2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pairs"
+label_settings = ExtResource("1_q2esx")
+vertical_alignment = 1
+
+[node name="LabelPairs" type="Label" parent="HB/MC2/VB/HB2"]
+layout_mode = 2
+text = "00/12"
+label_settings = ExtResource("1_q2esx")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="HB/MC2/VB"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="ExitButton" type="TextureButton" parent="HB/MC2/VB"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_wgtvu")
+texture_pressed = ExtResource("3_3ne15")
+
+[node name="Label" type="Label" parent="HB/MC2/VB/ExitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"
+label_settings = ExtResource("4_i1dy7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Scorer" parent="." instance=ExtResource("6_qyiew")]
+
+[node name="GameOverUI" parent="." instance=ExtResource("7_wqn1n")]
+visible = false
+layout_mode = 1
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="HB/MC2/VB/ExitButton" to="." method="_on_exit_button_pressed"]
