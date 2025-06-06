@@ -1,0 +1,7 @@
+res://scenes/enemies/eagle.tscn
+res://scenes/level_base/level_base.tscn
+res://scenes/enemies/eagle.gd
+res://scenes/enemy_base/enemy_base.tscn
+res://scenes/enemies/snail.tscn
+res://scenes/enemies/frog.tscn
+res://scenes/player/player.tscn
