@@ -1,0 +1,14 @@
+res://scenes/level_button/level_button.tscn
+res://assets/lg_48_wh.tres
+res://assets/lg_24_wh.tres
+res://assets/lg_96_bl.tres
+res://assets/lg_48_gr.tres
+res://scenes/level/level.tscn
+res://scenes/scorer/scorer.tscn
+res://scenes/cup/cup.tscn
+res://scenes/game_ui/game_ui.tscn
+res://scenes/main/main.tscn
+res://scenes/barrier/barrier.tscn
+res://scenes/launch_area/launch_area.tscn
+res://scenes/animal/animal.tscn
+res://scenes/level/level1.tscn
