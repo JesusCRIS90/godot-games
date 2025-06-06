@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://du5akye3m8ug7"]
+
+[ext_resource type="Texture2D" uid="uid://bak4k34m0nox3" path="res://assets/background/rocks_2.png" id="1_dhgfs"]
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_puhaf"]
+[ext_resource type="PackedScene" uid="uid://dba6owphhv15m" path="res://scenes/scrolling_bg/scrolling_bg.tscn" id="2_qfbol"]
+[ext_resource type="PackedScene" uid="uid://cpv1loewgn6by" path="res://scenes/plane/plane.tscn" id="2_qy5r8"]
+[ext_resource type="PackedScene" uid="uid://clikfvinp06cv" path="res://scenes/hud/hud.tscn" id="3_kj63x"]
+[ext_resource type="PackedScene" uid="uid://c10a3m1fkr4db" path="res://scenes/barrier/barrier.tscn" id="3_pps70"]
+[ext_resource type="PackedScene" uid="uid://v6nsjo2wlmow" path="res://scenes/game_over_ui/game_over_ui.tscn" id="5_5b76y"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_puhaf")
+
+[node name="ScrollingBg" parent="." instance=ExtResource("2_qfbol")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverUI" parent="CanvasLayer" instance=ExtResource("5_5b76y")]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("3_kj63x")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(243, 364)
+texture = ExtResource("1_dhgfs")
+
+[node name="Plane" parent="." instance=ExtResource("2_qy5r8")]
+position = Vector2(90, 354)
+
+[node name="Barrier" parent="." instance=ExtResource("3_pps70")]
+position = Vector2(0, -23)
+
+[node name="Barrier2" parent="." instance=ExtResource("3_pps70")]
+position = Vector2(0, 863)
+
+[node name="SpawnUpperMark" type="Marker2D" parent="."]
+position = Vector2(530, 340)
+
+[node name="SpawnLowerMark" type="Marker2D" parent="."]
+position = Vector2(530, 540)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true
+
+[node name="PipesHolder" type="Node" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
